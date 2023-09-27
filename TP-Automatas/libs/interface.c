@@ -38,7 +38,9 @@ int leerContenidoDelArchivo(const char *fuente, char *cadena)
  */
 void reconocerNumerosMenu(int respuesta, char *cadena)
 {
+    green();
     printf("Ingrese:\n");
+    reset();
     printf("0. Leer el archivo cadenasAReconocer.txt\n");
     printf("1. Escribir los numeros separandolos por $\n");
     scanf("%d", &respuesta);
@@ -58,13 +60,17 @@ void reconocerNumerosMenu(int respuesta, char *cadena)
         break;
 
     default:
+        red();
         printf("Respuesta no valida\n");
+        reset();
         return;
     }
 
     if (!verificaElAlfabeto(esCharDecimalOctalOHexa, cadena))
     {
+        red();
         printf("No verifica el alfabeto la cadena: %s\n", cadena);
+        reset();
         return;
     }
 
@@ -80,7 +86,9 @@ void reconocerNumerosMenu(int respuesta, char *cadena)
  */
 void resolverOperacionMenu(int respuesta, char *cadena)
 {
+    green();
     printf("Ingrese:\n");
+    reset();
     printf("0. Leer el archivo expresionAritmetica.txt\n");
     printf("1. Escribir la operacion aritmetica simple\n");
     scanf("%d", &respuesta);
@@ -94,11 +102,13 @@ void resolverOperacionMenu(int respuesta, char *cadena)
         }
         break;
     case 1:
-        printf("Escribi una operacion aritmetica simple (puede tener multiples +, -, *, /):  ");
+        printf("Escriba una operacion aritmetica simple (puede tener multiples +, -, *, /):  ");
         scanf("%s", cadena);
         break;
     default:
+        red();
         printf("Respuesta no valida\n");
+        reset();
         break;
     }
 
@@ -115,4 +125,31 @@ void resolverOperacionMenu(int respuesta, char *cadena)
 
     printf("El resultado es: %d\n", resolverOperacion(cadena));
     return;
+}
+
+/**
+ * @brief Función que establece el color de la consola a verde
+ *
+ */
+void green()
+{
+    printf("\033[0;32m");
+}
+
+/**
+ * @brief Función que establece el color de la consola a rojo
+ *
+ */
+void red()
+{
+    printf("\033[1;31m");
+}
+
+/**
+ * @brief Función que resetea el color de la consola a su valor por defecto.
+ *
+ */
+void reset()
+{
+    printf("\033[0m");
 }

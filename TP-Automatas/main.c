@@ -10,10 +10,12 @@ int main()
 
     do
     {
+        green(); // Color verde
         printf("Ingrese:\n");
+        reset(); // Color normal
         printf("0. reconocer numeros decimales, octales y/o hexadecimales\n");
         printf("1. Resolver una operacion aritmetica simple\n");
-        printf("3. salir\n");
+        printf("2. salir\n");
         scanf("%d", &respuesta);
 
         switch (respuesta)
@@ -25,11 +27,13 @@ int main()
         case 1:
             resolverOperacionMenu(respuesta, cadena);
             break;
-        case 3:
+        case 2:
             printf("Adios");
             break;
         default:
+            red();
             printf("Respuesta no valida\n");
+            reset(); // Color normal
             break;
         }
     } while (respuesta != 3);

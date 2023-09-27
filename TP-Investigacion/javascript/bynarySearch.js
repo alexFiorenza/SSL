@@ -17,7 +17,7 @@ function binarySearch(arr, target) {
   return -1 // El elemento no se encontró en el array
 }
 
-const sortedArray = [23, 8, 56, 42, 91, 17, 33, 5, 72, 10]
+const sortedArray = [5, 8, 10, 17, 23, 33, 42, 56, 72, 91]
 const target = 17
 console.time('binarySearch')
 binarySearch(sortedArray, target)

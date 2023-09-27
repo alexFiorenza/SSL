@@ -59,7 +59,7 @@ void incrementarContadoresSegunEl(const int estado, int *decimales, int *octales
  * Función que devuelve la columna correspondiente a un caracter en la tabla de transiciones de un autómata.
  * @param c Caracter a evaluar.
  * @return Entero que representa la columna correspondiente al caracter en la tabla de transiciones.
- *         Si el caracter no pertenece a ninguna de las columnas definidas, devuelve 5.
+ *         En el caso default devuelve 5. Siendo esta columna los caracteres [A-Fa-f] los cuales se consideran como default
  */
 int columnaNumeros(int c)
 {
@@ -153,7 +153,7 @@ void reconocerNumeros(char *cadena)
  *
  * @param c Caracter que representa la operación matemática.
  * @return Entero que representa la columna correspondiente a la operación matemática.
- *         Si el caracter no representa una operación matemática, devuelve 0.
+ *         Como caso default devuelve 0 siendo los caracteres [0-9]
  */
 int columnaOperacion(char c)
 {
@@ -177,7 +177,6 @@ int columnaOperacion(char c)
  * Utiliza una tabla de transición para determinar el estado final del autómata.
  * @param cadena La cadena a analizar.
  * @return 1 si la cadena representa una operación válida, 0 en caso contrario.
- * @archivo /Users/alexfiorenza/Documents/software_development/facultad/sintaxis_2023/TP-Automatas/libs/automata.c
  */
 int reconoceOperacion(char *cadena)
 {
