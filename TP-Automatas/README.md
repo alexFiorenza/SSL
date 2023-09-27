@@ -80,7 +80,7 @@
     }
   ```
 
-  2. Luego se procede a cargar los operandos en el array de operandos y los operadores en el array de operadores. Se cargan los terminos operando los y /, con ayuda de la variable primerOperando para guardar el resultado parcial de ir aplicando o/, los + y - sirven para saber donde finaliza un termino y guardar el resultado del termino en el array terminos.
+  2. Luego se procede a cargar los operandos en el array de operandos y los operadores en el array de operadores.
 
   ```c
     for (; expresionAritmetica[i]; i++) // cargar operadores y operandos
@@ -102,9 +102,32 @@
     operandos[k] = cadenaADecimal(enteroCadena);
 
     const int longitud = k;
+
+
   ```
 
-  3.Para calcular el resultado final, arranca en 0 y va restando o sumando los terminos segun el operador que le corresponda. Se utiliza la funcion `calcular` para realizar las operaciones.
+  3. Se cargan los terminos operando los y /, con ayuda de la variable primerOperando para guardar el resultado parcial de ir aplicando o/, los + y - sirven para saber donde finaliza un termino y guardar el resultado del termino en el array terminos.
+
+  ```c
+  // resolver los terminos y cargarlos en el array terminos
+    int primerOperando = operandos[0];
+    j = 0;
+    for (i = 1; i <= longitud; i++)
+    {
+        if (esSumaOResta(operadores[i]))
+        {
+            terminos[j++] = primerOperando;
+            primerOperando = operandos[i];
+        }
+        else
+        {
+            primerOperando = calcular(primerOperando, operandos[i], operadores[i]);
+        }
+    }
+    terminos[j] = primerOperando;
+  ```
+
+  4.Para calcular el resultado final, arranca en 0 y va restando o sumando los terminos segun el operador que le corresponda. Se utiliza la funcion `calcular` para realizar las operaciones.
 
   ```c
      // operar los terminos
