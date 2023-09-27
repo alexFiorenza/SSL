@@ -31,7 +31,7 @@
 </p>
 
 - Se decidio utilizar un unico automata para la detección de tokens. En un principio se consideraron 3 automatas (uno para cada sistema) y luego se decidio unificarlos en uno solo. Al momento de la implementacion se considero mucho más simplificado el automata unificado y de hecho para el codigo termino siendo mucho mas corto.
-- En la creación del automata no se tuvo en cuenta el caracter "$" ya que si bien la consigna lo pide, se decidio realizar la separacion entre caracteres desde el codigo y no desde el automata.
+- En la creación del automata no se tuvo en cuenta el caracter "$" ya que si bien la consigna lo pide, se decidio realizar la separacion entre caracteres desde el codigo y no desde el automata. No se espera que las cadenas sean demasiado largas para encontrar un beneficio en comprobar caracter a caracter si ya cayó en un estado de error
 
 ```c
     while (c != '\0')
