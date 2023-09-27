@@ -142,19 +142,19 @@ int resolverOperacion(const char *expresionAritmetica)
     const int longitud = k;
 
     // mostrar operandos y operadores
-    printf("operandos: ");
-    for (i = 0; i < longitud; i++)
-    {
-        printf("%d, ", operandos[i]);
-    }
-    printf("%d\n", operandos[longitud]);
+    // printf("operandos: ");
+    // for (i = 0; i < longitud; i++)
+    // {
+    //     printf("%d, ", operandos[i]);
+    // }
+    // printf("%d\n", operandos[longitud]);
 
-    printf("operadores: ");
-    for (i = 0; i < longitud; i++)
-    {
-        printf("%c, ", operadores[i]);
-    }
-    printf("%c\n", operadores[longitud]);
+    // printf("operadores: ");
+    // for (i = 0; i < longitud; i++)
+    // {
+    //     printf("%c, ", operadores[i]);
+    // }
+    // printf("%c\n", operadores[longitud]);
 
     // resolver los terminos y cargarlos en el array terminos
     int primerOperando = operandos[0];
@@ -174,12 +174,12 @@ int resolverOperacion(const char *expresionAritmetica)
     terminos[j] = primerOperando;
 
     // mostrar terminos
-    printf("terminos: ");
-    for (i = 0; i < j; i++)
-    {
-        printf("%d, ", terminos[i]);
-    }
-    printf("%d\n", terminos[j]);
+    // printf("terminos: ");
+    // for (i = 0; i < j; i++)
+    // {
+    //     printf("%d, ", terminos[i]);
+    // }
+    // printf("%d\n", terminos[j]);
 
     // operar los terminos
     int resultado = 0;

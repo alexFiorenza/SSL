@@ -18,6 +18,7 @@
 #### Consideraciones
 
 - En caso de correr a traves de un archivo este debe ser creado en la carpeta root con el nombre **expresionAritmetica.txt**
+- Los automatas desarrollados consumen toda la cadena y al final se determina si terminaron en un estado de rechazo
 
 ### Documentación 📖
 
@@ -29,7 +30,7 @@
   </a>
 </p>
 
-- Se decidio utilizar un unico automata para la detección de tokens. Esto permitio reutilizarlo posteriormente en el punto 3. En un principio se consideraron 3 automatas (uno para cada sistema) y luego se decidio unificarlos en uno solo. Al momento de la implementacion se considero mucho más simplificado el automata unificado y de hecho para el codigo termino siendo mucho mas corto y la reutilización se pudo realizar sin problemas.
+- Se decidio utilizar un unico automata para la detección de tokens. En un principio se consideraron 3 automatas (uno para cada sistema) y luego se decidio unificarlos en uno solo. Al momento de la implementacion se considero mucho más simplificado el automata unificado y de hecho para el codigo termino siendo mucho mas corto.
 - En la creación del automata no se tuvo en cuenta el caracter "$" ya que si bien la consigna lo pide, se decidio realizar la separacion entre caracteres desde el codigo y no desde el automata.
 
 ```c
@@ -79,7 +80,7 @@
     }
   ```
 
-  2. Luego se procede a cargar los operandos en el array de operandos y los operadores en el array de operadores
+  2. Luego se procede a cargar los operandos en el array de operandos y los operadores en el array de operadores. Se cargan los terminos operando los y /, con ayuda de la variable primerOperando para guardar el resultado parcial de ir aplicando o/, los + y - sirven para saber donde finaliza un termino y guardar el resultado del termino en el array terminos.
 
   ```c
     for (; expresionAritmetica[i]; i++) // cargar operadores y operandos
@@ -103,7 +104,7 @@
     const int longitud = k;
   ```
 
-  3. Por ultimo se operan los resultados de acuerdo a los arrays de operandos y operadores
+  3.Para calcular el resultado final, arranca en 0 y va restando o sumando los terminos segun el operador que le corresponda. Se utiliza la funcion `calcular` para realizar las operaciones.
 
   ```c
      // operar los terminos
